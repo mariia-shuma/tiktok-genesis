@@ -1,6 +1,7 @@
-import { Card } from "antd";
+import React from 'react';
+import { Card } from 'antd';
 
-const Errormessage = function () {
+const ErrorMessage = function ErrorMessage() {
   return (
     <div>
       <Card style={{ width: 320 }}>
@@ -14,4 +15,4 @@ const Errormessage = function () {
   );
 };
 
-export default Errormessage;
+export default ErrorMessage;

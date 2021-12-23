@@ -1,10 +1,11 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import Feed from "./components/Feed/Feed";
-import UserInfo from "./components/UserProfile/UserInfo";
-import { Row, Col } from "antd";
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
+import { Row, Col } from 'antd';
+import Feed from './components/Feed/Feed';
+import UserInfo from './components/UserProfile/UserInfo';
 
-function App() {
+const App = function App() {
   return (
     <Row type="flex" justify="center">
       <Col>
@@ -17,5 +18,5 @@ function App() {
       </Col>
     </Row>
   );
-}
+};
 export default App;
