@@ -1,4 +1,7 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+
 import 'antd/dist/antd.css';
 import { Card, Avatar } from 'antd';
 import {
@@ -6,8 +9,6 @@ import {
   LikeOutlined,
   CommentOutlined,
 } from '@ant-design/icons';
-import React from 'react';
-import PropTypes from 'prop-types';
 
 const { Meta } = Card;
 

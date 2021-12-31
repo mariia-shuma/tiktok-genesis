@@ -1,7 +1,8 @@
-import { Descriptions } from 'antd';
-import 'antd/dist/antd.css';
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import { Descriptions } from 'antd';
+import 'antd/dist/antd.css';
 
 const UserProfile = function UserProfile({ user, stats }) {
   return (
