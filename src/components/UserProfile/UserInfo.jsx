@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom';
 import { Spin } from 'antd';
 
 import UserProfile from './UserProfile';
-import { getUserFeed, getUserInfo } from '../../services/ApiRequests';
 import Post from '../Feed/Post/Post';
 import ErrorMessage from '../ErrorMessage';
+import getUserInfo from '../../services/getUserInfo';
+import fetchTrendingFeed from '../../api/fetchTrendingFeed';
 
 const UserInfo = function UserInfo() {
   const { name } = useParams();
@@ -15,23 +16,24 @@ const UserInfo = function UserInfo() {
   const [feed, setFeed] = React.useState(null);
   const [isError, setIsError] = React.useState(false);
 
-  React.useEffect(() => {
-    getUserInfo(name)
-      .then((response) => {
-        setUser(response.data.user);
-        setStats(response.data.stats);
-      })
-      .catch(() => {
-        setIsError(true);
-      });
+  React.useEffect(async () => {
+    try {
+      const response = await getUserInfo(name);
+      setUser(response.user);
+      setStats(response.stats);
+      setFeed(null);
+    } catch (error) {
+      setIsError(true);
+    }
+  }, [name]);
 
-    getUserFeed(name)
-      .then((response) => {
-        setFeed(response.data);
-      })
-      .catch(() => {
-        setIsError(true);
-      });
+  React.useEffect(async () => {
+    try {
+      const response = await fetchTrendingFeed(name);
+      setFeed(response);
+    } catch (error) {
+      setIsError(true);
+    }
   }, [name]);
 
   return (

@@ -1,21 +1,20 @@
 import React from 'react';
 
 import Post from './Post/Post';
-import { getTrendingFeed } from '../../services/ApiRequests';
 import ErrorMessage from '../ErrorMessage';
+import getTrendingFeed from '../../services/getTrendingFeed';
 
 const Feed = function Feed() {
   const [posts, setPosts] = React.useState([]);
   const [error, setError] = React.useState(false);
 
-  React.useEffect(() => {
-    getTrendingFeed()
-      .then((response) => {
-        setPosts(response.data);
-      })
-      .catch(() => {
-        setError(true);
-      });
+  React.useEffect(async () => {
+    try {
+      const response = await getTrendingFeed();
+      setPosts(response);
+    } catch (er) {
+      setError(true);
+    }
   }, []);
 
   const postsElements = posts.map((p) => <Post post={p} key={p.id} />);
