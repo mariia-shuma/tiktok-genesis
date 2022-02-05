@@ -30,7 +30,7 @@ const UserInfo = function UserInfo() {
   React.useEffect(async () => {
     try {
       const response = await fetchTrendingFeed(name);
-      setFeed(response);
+      setFeed(response.data);
     } catch (error) {
       setIsError(true);
     }
