@@ -20,6 +20,7 @@ module.exports = {
       },
     ],
     'react/jsx-one-expression-per-line': 'off',
+    'react/function-component-definition': 'off',
     'react/jsx-wrap-multilines': 'off',
     'comma-dangle': [
       2,
