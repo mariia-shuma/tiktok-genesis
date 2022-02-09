@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { ErrorMessage } from 'component-library';
+
 import Post from './Post/Post';
-import ErrorMessage from '../ErrorMessage';
+
 import getTrendingFeed from '../../services/getTrendingFeed';
 
 const Feed = function Feed() {
