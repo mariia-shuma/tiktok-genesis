@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 
 import { Spin } from 'antd';
 
+import { ErrorMessage } from 'component-library';
 import UserProfile from './UserProfile';
 import Post from '../Feed/Post/Post';
-import ErrorMessage from '../ErrorMessage';
 import getUserInfo from '../../services/getUserInfo';
 import fetchTrendingFeed from '../../api/fetchTrendingFeed';
 
